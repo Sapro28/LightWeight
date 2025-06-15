@@ -160,37 +160,68 @@ const validateWorkoutPlan = (plan: any): WorkoutPlan => {
 const validateAnswer = (questionNumber: number, input: string) => {
   const trimmed = input.trim();
   if (!trimmed) return { isValid: false, message: "Please provide an answer" };
+
   switch (questionNumber) {
-    case 1:
+    case 1: {
       const age = parseInt(trimmed);
       if (isNaN(age) || age < 13 || age > 100) {
         return { isValid: false, message: "Please enter a valid age (13-100)" };
       }
       break;
-    case 2:
+    }
+    case 2: {
       if (trimmed.length < 3) {
         return { isValid: false, message: "Please describe your goal" };
       }
+      if (/\d/.test(trimmed)) {
+        return {
+          isValid: false,
+          message: "Fitness goal should not contain numbers",
+        };
+      }
       break;
-    case 3:
+    }
+    case 3: {
       const days = parseInt(trimmed);
       if (isNaN(days) || days < 1 || days > 7) {
         return { isValid: false, message: "Please enter 1-7 days" };
       }
       break;
-    case 4:
-      if (!trimmed.match(/\d/)) {
-        return { isValid: false, message: "Please include a number" };
+    }
+    case 4: {
+      const height = parseInt(trimmed);
+      if (isNaN(height) || height < 125 || height > 225) {
+        return {
+          isValid: false,
+          message: "Please enter a valid height in cm (125–225)",
+        };
       }
       break;
-    case 5:
-      if (!trimmed.match(/\d/)) {
-        return { isValid: false, message: "Please include a number" };
+    }
+    case 5: {
+      const weight = parseInt(trimmed);
+      if (isNaN(weight) || weight < 40 || weight > 200) {
+        return {
+          isValid: false,
+          message: "Please enter a valid weight in kg (40–200)",
+        };
       }
       break;
+    }
+    case 6: {
+      if (/\d/.test(trimmed)) {
+        return {
+          isValid: false,
+          message: "Dietary restrictions should not contain numbers",
+        };
+      }
+      break;
+    }
   }
+
   return { isValid: true };
 };
+
 const CreateWorkoutPlan: React.FC = () => {
   const { user } = useUser();
   const router = useRouter();
@@ -216,13 +247,13 @@ const CreateWorkoutPlan: React.FC = () => {
     },
     {
       id: "height",
-      text: "What is your height?",
-      placeholder: "e.g., 5'8\" or 173cm",
+      text: "What is your height? (in centimeters)",
+      placeholder: "e.g., 173cm",
     },
     {
       id: "weight",
-      text: "What is your weight?",
-      placeholder: "e.g., 150 lbs or 68 kg",
+      text: "What is your weight? (in kilograms)",
+      placeholder: "e.g., 68 kg",
     },
     {
       id: "diet",
