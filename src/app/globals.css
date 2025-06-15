@@ -1,0 +1,274 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* Base Variables */
+  --radius: 0.625rem;
+
+  /* Main colors - all in the blue family */
+  --fitness-blue: #4d8bff;
+  --fitness-blue-light: #9ac4ff;
+  --fitness-blue-dark: #1d65a3;
+  --fitness-navy: #121c42;
+  --fitness-accent: rgba(77, 139, 255, 0.3);
+
+  --fitness-dark: #0a0d1a;
+  --fitness-light: #e9ecf5;
+  --background: var(--fitness-dark);
+  --foreground: var(--fitness-light);
+
+  /* Card and popover elements */
+  --card: #1a2639; /* Slightly lighter than background */
+  --card-foreground: #f2f2f2;
+  --popover: #1a2639;
+  --popover-foreground: #f2f2f2;
+
+  /* Primary - Main blue */
+  --primary: var(--fitness-blue);
+  --primary-foreground: var(--fitness-dark);
+
+  /* Secondary - Darker blue */
+  --secondary: var(--fitness-blue-dark);
+  --secondary-foreground: var(--fitness-light);
+
+  /* Accent - Light blue with glow */
+  --accent: var(--fitness-blue-light);
+  --accent-foreground: var(--fitness-dark);
+
+  /* Muted elements */
+  --muted: #243756; /* Slightly lighter than card */
+  --muted-foreground: #94a3b8;
+
+  /* System colors */
+  --destructive: #ef4444; /* Kept this the same */
+  --border: rgba(59, 168, 239, 0.2); /* Matches the blue */
+  --input: rgba(59, 168, 239, 0.2); /* Matches the blue */
+  --ring: var(--fitness-blue);
+
+  /* Chart colors - all blue shades */
+  --chart-1: var(--fitness-blue);
+  --chart-2: var(--fitness-blue-light);
+  --chart-3: var(--fitness-blue-dark);
+  --chart-4: #4c9fe0; /* Medium blue */
+  --chart-5: var(--fitness-navy);
+
+  /* Sidebar colors */
+  --sidebar: var(--fitness-dark);
+  --sidebar-foreground: #f2f2f2;
+  --sidebar-primary: var(--fitness-blue);
+  --sidebar-primary-foreground: var(--fitness-dark);
+  --sidebar-accent: var(--fitness-blue-light);
+  --sidebar-accent-foreground: var(--fitness-dark);
+  --sidebar-border: rgba(59, 168, 239, 0.2);
+  --sidebar-ring: var(--fitness-blue);
+
+  /* Custom UI Variables - simplified */
+  --fitness-glow: rgba(59, 168, 239, 0.3);
+  --fitness-line: rgba(59, 168, 239, 0.3);
+}
+
+.dark {
+  /* Same values as above for dark mode */
+  --background: var(--fitness-dark);
+  --foreground: var(--fitness-light);
+  --card: #1a2639;
+  --card-foreground: #f2f2f2;
+  --popover: #1a2639;
+  --popover-foreground: #f2f2f2;
+  --primary: var(--fitness-blue);
+  --primary-foreground: var(--fitness-dark);
+  --secondary: var(--fitness-blue-dark);
+  --secondary-foreground: var(--fitness-light);
+  --accent: var(--fitness-blue-light);
+  --accent-foreground: var(--fitness-dark);
+  --muted: #243756;
+  --muted-foreground: #94a3b8;
+  --destructive: #ef4444;
+  --border: rgba(59, 168, 239, 0.2);
+  --input: rgba(59, 168, 239, 0.2);
+  --ring: var(--fitness-blue);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-size: 30px 30px;
+  }
+
+  /* Simple link styling */
+  a {
+    @apply text-primary hover:text-primary/80 transition-colors;
+  }
+
+  /* Simple heading styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  /* https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Simplified animations */
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes sound-wave {
+  0% {
+    height: 10%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 10%;
+  }
+}
+
+.animate-sound-wave {
+  animation: sound-wave 1.2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(70px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.75s cubic-bezier(0.39, 0.575, 0.565, 1) 0.25s both;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* React Day Picker styles (kept from original) */
+.rdp-root {
+  --rdp-cell-size: 2.25rem;
+  --rdp-accent-color: none !important;
+  --rdp-background-color: transparent;
+  --rdp-background-color-dark: transparent;
+  --rdp-outline: 2px solid var(--rdp-accent-color);
+  --rdp-outline-selected: 2px solid var(--rdp-accent-color);
+  --rdp-outline-selected-dark: 2px solid var(--rdp-accent-color-dark);
+  --rdp-selected-color: #fff;
+  --rdp-selected-border: none;
+  --rdp-selected-color-dark: #fff;
+  --rdp-today-color: var(--rdp-accent-color);
+  --rdp-today-color-dark: var(--rdp-accent-color-dark);
+}
+
+.rdp-selected {
+  --rdp-cell-size: 2.25rem;
+  font-size: 14px;
+}
+
+.rdp-day {
+  height: var(--rdp-cell-size);
+  width: var(--rdp-cell-size);
+  border-radius: 9999px;
+}
