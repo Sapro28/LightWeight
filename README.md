@@ -7,7 +7,6 @@ This is my final year project - a fitness application that uses AI to create per
 - AI-generated workout plans
 - Personalized diet recommendations
 - Progress tracking with fitness journal
-- Voice and text chat interface
 
 ## Tech Stack
 

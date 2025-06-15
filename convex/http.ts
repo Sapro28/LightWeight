@@ -105,7 +105,7 @@ function normalizeDietPlan(rawPlan: any) {
   return normalizedPlan;
 }
 httpRoutes.route({
-  path: "/vapi/create-workout-plan",
+  path: "/create-workout-plan",
   method: "POST",
   handler: httpAction(async (ctx, request) => {
     try {
@@ -115,10 +115,8 @@ httpRoutes.route({
         age,
         height,
         weight,
-        injuries,
         workout_days,
         fitness_goal,
-        fitness_level,
         dietary_restrictions,
       } = requestData;
       console.log("Processing fitness plan request:", requestData);
@@ -134,10 +132,8 @@ httpRoutes.route({
       Age: ${age}
       Height: ${height}
       Weight: ${weight}
-      Injuries or limitations: ${injuries}
       Available days for workout: ${workout_days}
       Fitness goal: ${fitness_goal}
-      Fitness level: ${fitness_level}
       As a professional coach:
       - Consider muscle group splits to avoid overtraining the same muscles on consecutive days
       - Design exercises that match the fitness level and account for any injuries

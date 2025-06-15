@@ -67,7 +67,7 @@ const FitnessHomePage = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Tell Us Your Goals</h3>
                 <p className="text-muted-foreground">
-                  Chat with our AI through text or a voice call
+                  Answer a few questions given by our AI
                 </p>
               </Card>
 
