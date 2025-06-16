@@ -54,9 +54,9 @@ You are an experienced fitness trainer creating a workout plan based on: "${user
 Consider:
 - User's fitness level (beginner, intermediate, advanced)
 - Their stated goals (strength, cardio, weight loss, muscle gain)
+= Exercise Frequency
 - Equipment availability mentioned
 - Balanced muscle group targeting
-- Appropriate rest periods
 
 CRITICAL INSTRUCTIONS:
 - Output MUST be valid JSON only
