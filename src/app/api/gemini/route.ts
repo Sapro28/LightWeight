@@ -21,13 +21,9 @@ export async function POST(req: Request) {
 
     let finalPrompt = "";
 
-    if (
-      lowerPrompt.includes("professional nutrition coach")
-    ) {
+    if (lowerPrompt.includes("professional nutrition coach")) {
       finalPrompt = createNutritionPlan(prompt);
-    } else if (
-      lowerPrompt.includes("experienced fitness trainer")
-    ) {
+    } else if (lowerPrompt.includes("experienced fitness trainer")) {
       finalPrompt = buildWorkoutRoutine(prompt);
     } else {
       finalPrompt = `You are Cal O'Rie, a world-class fitness AI. Help the user with short, smart answers focused on workouts, diet, injury recovery, or exercise routines.

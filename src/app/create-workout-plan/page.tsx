@@ -317,7 +317,7 @@ const CreateWorkoutPlan: React.FC = () => {
     const userRequest = `
 Age: ${answers.age || "Not provided"}
 Goal: ${answers.goal || "General fitness"}
-Training Days: ${answers.days || "3-4 days"}
+Training Days: ${answers.days || "7 days"}
 Height: ${answers.height || "Not provided"}
 Weight: ${answers.weight || "Not provided"}
 Dietary Preferences: ${answers.diet || "No specific restrictions"}

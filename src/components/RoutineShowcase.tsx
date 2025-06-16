@@ -163,11 +163,11 @@ const RoutineShowcase = () => {
                     <div className="flex-1">
                       <div className="flex justify-between items-center">
                         <h3 className="font-medium text-accent">
-                          Safety Guidelines
+                          Adaptability
                         </h3>
                       </div>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Injury prevention enabled
+                        Easy to follow
                       </p>
                     </div>
                   </div>

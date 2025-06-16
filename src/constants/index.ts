@@ -8,7 +8,6 @@ export const USER_PROGRAMS = [
     weight: "210 lbs",
     age: 34,
     workout_days: 4,
-    injuries: "Hamstring Pain",
     fitness_level: "Beginner",
     equipment_access: "Home gym",
     dietary_restrictions: "Lactose intolerant",
@@ -25,7 +24,7 @@ export const USER_PROGRAMS = [
         },
       ],
       description:
-        "This program focuses on building a consistent exercise habit with joint-friendly movements that protect your hamstring. The mix of cardio and strength training supports weight loss while preserving muscle mass.",
+        "This program focuses on building a consistent exercise habit. The mix of cardio and strength training supports weight loss while preserving muscle mass.",
     },
     diet_plan: {
       title: "Balanced Nutrition Plan (Lactose-Free)",
@@ -62,7 +61,6 @@ export const USER_PROGRAMS = [
     weight: "160 lbs",
     age: 32,
     workout_days: 5,
-    injuries: "None",
     fitness_level: "Intermediate",
     equipment_access: "Full gym",
     dietary_restrictions: "None",
@@ -113,7 +111,6 @@ export const USER_PROGRAMS = [
     weight: "130 lbs",
     age: 45,
     workout_days: 3,
-    injuries: "Knee pain",
     fitness_level: "Intermediate",
     equipment_access: "Bodyweight only",
     dietary_restrictions: "Vegetarian",
@@ -125,7 +122,7 @@ export const USER_PROGRAMS = [
         { day: "Saturday", focus: "Cardio & Core", duration: "40 min" },
       ],
       description:
-        "This program focuses on functional movement patterns that improve everyday performance while being gentle on the knees. Emphasis is on core strength, mobility, and cardiovascular health.",
+        "This program focuses on functional movement patterns that improve everyday performance. Emphasis is on core strength, mobility, and cardiovascular health.",
     },
     diet_plan: {
       title: "Balanced Vegetarian Nutrition",
